@@ -1,6 +1,40 @@
 "use strict";
 
 $(document).ready(function () {
+
+	// Disable right-click context menu
+    $(document).on("contextmenu", function (e) {
+        e.preventDefault();
+    });
+
+    // Disable F12 key (Inspect Element)
+    $(document).on("keydown", function (e) {
+        if (e.keyCode === 123) { // F12 key code
+            return false;
+        }
+    });
+
+    // Disable Ctrl+Shift+I (Chrome DevTools)
+    $(document).on("keydown", function (e) {
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { // Ctrl+Shift+I
+            return false;
+        }
+    });
+
+    // Disable Ctrl+Shift+J (Console)
+    $(document).on("keydown", function (e) {
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 74) { // Ctrl+Shift+J
+            return false;
+        }
+    });
+
+    // Disable Ctrl+U (View Source)
+    $(document).on("keydown", function (e) {
+        if (e.ctrlKey && e.keyCode === 85) { // Ctrl+U
+            return false;
+        }
+    });
+	
 	/* Video Lightbox */
 	if (!!$.prototype.simpleLightboxVideo) {
 		$('.video').simpleLightboxVideo();
@@ -65,3 +99,5 @@ $(window).load(function () { // makes sure the whole site is loaded
 	}
 
 });
+
+
