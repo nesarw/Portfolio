@@ -307,3 +307,27 @@ h6 {
 #landing-footer i {
     color:#999;
 }
+
+/* Remove and replace banner background for mobile */
+@media only screen and (max-width: 768px) { 
+    #banner {
+        background: url('../images/banner-images/banner-image-2.jpg') no-repeat center center;
+        background-size: cover;
+    }
+
+    /* Reduce text size for mobile */
+    #banner h1 {
+        font-size: 35px; /* Adjust this size as needed */
+    }
+
+    #banner h2 {
+        font-size: 16px; /* Adjust this size as needed */
+        line-height: 1.4; /* Improve readability */
+    }
+
+    /* Adjust padding for banner content */
+    #banner-content.row {
+        padding-top: 100px; /* Reduce top padding for mobile */
+        padding-bottom: 50px; /* Reduce bottom padding */
+    }
+}
