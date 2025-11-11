@@ -1420,6 +1420,41 @@ blockquote {
     display: inline-block;
 }
 
+/* Client card: enforce a consistent container ratio and center logo images
+   - Uses aspect-ratio so all logo containers share the same shape (4:3 landscape by default)
+   - Images themselves use object-fit: contain to avoid distortion and remain centered
+   - Keeps overlay behavior intact */
+#clients .client-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px; /* reduced padding for smaller cards */
+    position: relative;
+    overflow: hidden;
+    /* keep the same container shape but slightly smaller */
+    aspect-ratio: 4 / 3;
+    min-height: 88px; /* reduced fallback min-height */
+}
+
+#clients .client-card img {
+    display: block;
+    max-width: 72%; /* reduce image footprint so logos sit comfortably */
+    max-height: 72%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* preserve logo aspect without stretching */
+    margin: 0 auto;
+}
+
+/* Improve hover overlay stacking when using flex container */
+#clients .client-card .client-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 /* --------- 6.7 Pricing Table ---------- */
 
 .pricing-block-content {
